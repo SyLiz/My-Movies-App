@@ -75,7 +75,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.titleLable.text = viewModel[indexPath.row].title
             buildcell.contentView.frame = cell.bounds
             buildcell.contentView.layoutIfNeeded()
-            buildcell.secondICollectionView.reloadData()
+            buildcell.MediumCollectionView.reloadData()
         case ("title","small"):
             let buildcell = cell as! SmallTableViewCell
             buildcell.indext = indexPath.row
@@ -83,7 +83,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.titleLable.text = viewModel[indexPath.row].title
             buildcell.contentView.frame = cell.bounds
             buildcell.contentView.layoutIfNeeded()
-            buildcell.secondICollectionView.reloadData()
+            buildcell.smallCollectionView.reloadData()
         case (_, _):
             return UITableViewCell()
         }

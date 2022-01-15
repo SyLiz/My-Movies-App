@@ -13,14 +13,14 @@ class SmallTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLable: UILabel!
     
     var viewModel = [DashboardModelElement]()
-    @IBOutlet weak var secondICollectionView: UICollectionView!
+    @IBOutlet weak var smallCollectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        secondICollectionView.delegate = self
-        secondICollectionView.dataSource = self
-        secondICollectionView.layer.borderWidth = 1
-        secondICollectionView.layer.borderColor = UIColor.gray.cgColor
+        smallCollectionView.delegate = self
+        smallCollectionView.dataSource = self
+        smallCollectionView.layer.borderWidth = 1
+        smallCollectionView.layer.borderColor = UIColor.gray.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

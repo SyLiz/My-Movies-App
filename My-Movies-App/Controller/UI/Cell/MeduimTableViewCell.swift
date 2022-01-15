@@ -11,14 +11,14 @@ class MeduimTableViewCell: UITableViewCell {
     var indext = 0
     @IBOutlet weak var titleLable: UILabel!
     var viewModel = [DashboardModelElement]()
-    @IBOutlet weak var secondICollectionView: UICollectionView!
+    @IBOutlet weak var MediumCollectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        secondICollectionView.delegate = self
-        secondICollectionView.dataSource = self
-        secondICollectionView.layer.borderWidth = 1
-        secondICollectionView.layer.borderColor = UIColor.gray.cgColor
+        MediumCollectionView.delegate = self
+        MediumCollectionView.dataSource = self
+        MediumCollectionView.layer.borderWidth = 1
+        MediumCollectionView.layer.borderColor = UIColor.gray.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
