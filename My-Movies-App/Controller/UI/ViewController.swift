@@ -62,14 +62,14 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         }
         switch (viewModel[indexPath.row].type , viewModel[indexPath.row].size) {
         case ("rotate","big"):
-            let buildcell = cell as! DashboardTableViewCell
+            let buildcell = cell as! RotateTableViewCell
             buildcell.viewModel = viewModel
             buildcell.dotPageControl.numberOfPages = viewModel[indexPath.row].movies.count
             buildcell.contentView.frame = cell.bounds
             buildcell.contentView.layoutIfNeeded()
             buildcell.rotateCollectionView.reloadData()
         case ("title","medium"):
-            let buildcell = cell as! MeduimTableCell
+            let buildcell = cell as! MeduimTableViewCell
             buildcell.indext = indexPath.row
             buildcell.viewModel = viewModel
             buildcell.titleLable.text = viewModel[indexPath.row].title
@@ -77,7 +77,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.contentView.layoutIfNeeded()
             buildcell.secondICollectionView.reloadData()
         case ("title","small"):
-            let buildcell = cell as! SmallTableCell
+            let buildcell = cell as! SmallTableViewCell
             buildcell.indext = indexPath.row
             buildcell.viewModel = viewModel
             buildcell.titleLable.text = viewModel[indexPath.row].title
