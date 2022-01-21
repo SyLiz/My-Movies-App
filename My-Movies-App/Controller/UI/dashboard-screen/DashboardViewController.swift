@@ -7,7 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, FetchHomePageDelegate {
+protocol CallSegueFromCell{
+    func performSegueFromCell(senderObj:Movie)
+}
+
+class DashboardViewController: UIViewController, FetchHomePageDelegate , CallSegueFromCell {
+    
+    var identifierSegue = "DashboardToDetail"
+    func performSegueFromCell(senderObj: Movie) {
+        performSegue(withIdentifier: identifierSegue, sender: senderObj)
+    }
+    
     var fetchData = NetworkController()
     var viewModel = [DashboardModelElement]()
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +30,7 @@ class ViewController: UIViewController, FetchHomePageDelegate {
         tableView.dataSource = self
         tableView.allowsSelection = false
         fetchData.fetchData()
+        //performSegue(withIdentifier: "DashboardToDetail", sender: "test")
     }
 
     
@@ -35,9 +46,17 @@ class ViewController: UIViewController, FetchHomePageDelegate {
     }
     
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "DashboardToDetail") {
+            if let nextViewController = segue.destination as? DetailViewController {
+                nextViewController.movieDetailViewModel = sender as? Movie
+            }
+        }
+    }
 }
 
-extension ViewController: UITableViewDelegate,UITableViewDataSource {
+extension DashboardViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
@@ -67,6 +86,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.dotPageControl.numberOfPages = viewModel[indexPath.row].movies.count
             buildcell.contentView.frame = cell.bounds
             buildcell.contentView.layoutIfNeeded()
+            buildcell.delegate = self
             buildcell.rotateCollectionView.reloadData()
         case ("title","medium"):
             let buildcell = cell as! MeduimTableViewCell

@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		812507252792B73800425EB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812507242792B73800425EB4 /* Main.storyboard */; };
-		8185E4FC2792ABE40027F998 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4F72792ABE40027F998 /* ViewController.swift */; };
+		8125072A2792C06E00425EB4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812507292792C06E00425EB4 /* DetailViewController.swift */; };
+		8185E4FC2792ABE40027F998 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4F72792ABE40027F998 /* DashboardViewController.swift */; };
 		8185E4FD2792ABE40027F998 /* SmallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4F92792ABE40027F998 /* SmallTableViewCell.swift */; };
 		8185E4FE2792ABE40027F998 /* RotateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4FA2792ABE40027F998 /* RotateTableViewCell.swift */; };
 		8185E4FF2792ABE40027F998 /* MeduimTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4FB2792ABE40027F998 /* MeduimTableViewCell.swift */; };
@@ -25,7 +26,8 @@
 		3ACEA5B52376003A9CF3C35F /* Pods-My-Movies-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My-Movies-App.debug.xcconfig"; path = "Target Support Files/Pods-My-Movies-App/Pods-My-Movies-App.debug.xcconfig"; sourceTree = "<group>"; };
 		76F047A82A0899AA2F826D39 /* Pods-My-Movies-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My-Movies-App.release.xcconfig"; path = "Target Support Files/Pods-My-Movies-App/Pods-My-Movies-App.release.xcconfig"; sourceTree = "<group>"; };
 		812507242792B73800425EB4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8185E4F72792ABE40027F998 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		812507292792C06E00425EB4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8185E4F72792ABE40027F998 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8185E4F92792ABE40027F998 /* SmallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTableViewCell.swift; sourceTree = "<group>"; };
 		8185E4FA2792ABE40027F998 /* RotateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateTableViewCell.swift; sourceTree = "<group>"; };
 		8185E4FB2792ABE40027F998 /* MeduimTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeduimTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,23 +80,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		812507272792BFCE00425EB4 /* detail-screen */ = {
+			isa = PBXGroup;
+			children = (
+				812507292792C06E00425EB4 /* DetailViewController.swift */,
+			);
+			path = "detail-screen";
+			sourceTree = "<group>";
+		};
+		812507282792BFE000425EB4 /* dashboard-screen */ = {
+			isa = PBXGroup;
+			children = (
+				8185E4F82792ABE40027F998 /* cell */,
+				8185E4F72792ABE40027F998 /* DashboardViewController.swift */,
+			);
+			path = "dashboard-screen";
+			sourceTree = "<group>";
+		};
 		8185E4F62792ABE40027F998 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8185E4F72792ABE40027F998 /* ViewController.swift */,
-				8185E4F82792ABE40027F998 /* Cell */,
+				812507282792BFE000425EB4 /* dashboard-screen */,
+				812507272792BFCE00425EB4 /* detail-screen */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		8185E4F82792ABE40027F998 /* Cell */ = {
+		8185E4F82792ABE40027F998 /* cell */ = {
 			isa = PBXGroup;
 			children = (
 				8185E4F92792ABE40027F998 /* SmallTableViewCell.swift */,
 				8185E4FA2792ABE40027F998 /* RotateTableViewCell.swift */,
 				8185E4FB2792ABE40027F998 /* MeduimTableViewCell.swift */,
 			);
-			path = Cell;
+			path = cell;
 			sourceTree = "<group>";
 		};
 		81B3C06A278EDBF4000FCE9E = {
@@ -140,8 +159,8 @@
 		81B3C08C278EDC5F000FCE9E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8185E4F62792ABE40027F998 /* UI */,
 				81B3C093278EDF92000FCE9E /* NetworkController.swift */,
+				8185E4F62792ABE40027F998 /* UI */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,8 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8125072A2792C06E00425EB4 /* DetailViewController.swift in Sources */,
 				8185E4FF2792ABE40027F998 /* MeduimTableViewCell.swift in Sources */,
-				8185E4FC2792ABE40027F998 /* ViewController.swift in Sources */,
+				8185E4FC2792ABE40027F998 /* DashboardViewController.swift in Sources */,
 				8185E4FD2792ABE40027F998 /* SmallTableViewCell.swift in Sources */,
 				81B3C094278EDF92000FCE9E /* NetworkController.swift in Sources */,
 				81B3C077278EDBF4000FCE9E /* AppDelegate.swift in Sources */,

@@ -11,7 +11,7 @@ class RotateTableViewCell: UITableViewCell {
     @IBOutlet weak var dotPageControl: UIPageControl!
     @IBOutlet weak var rotateCollectionView: UICollectionView!
     var indext = 0
-    
+    var delegate:CallSegueFromCell?
     var viewModel = [DashboardModelElement]()
     
     override func awakeFromNib() {
@@ -35,12 +35,19 @@ class RotateTableViewCell: UITableViewCell {
         dotPageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
     }
     
+
+    
     @IBAction func pageControlSelectionAction(_ sender: UIPageControl) {
        let page: Int? = sender.currentPage
         var frame: CGRect = self.rotateCollectionView.frame
         frame.origin.x = frame.size.width * CGFloat(page ?? 0)
         frame.origin.y = 0
         self.rotateCollectionView.scrollRectToVisible(frame, animated: false)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //print(viewModel[indext].movies[indexPath.row].name)
+        delegate?.performSegueFromCell(senderObj: viewModel[indext].movies[indexPath.row])
     }
 }
 
