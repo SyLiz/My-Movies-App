@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var dotPageControlDetail: UIPageControl!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var languageCollectionView: UICollectionView!
@@ -30,6 +31,7 @@ class DetailViewController: UIViewController {
         languageCollectionView.dataSource = self
         languageCollectionView.layoutIfNeeded()
         languageCollectionView.reloadData()
+        
 
         //startDateLabel.text
         if let strToIntDate = Int(movieDetailViewModel!.startDate) {
@@ -60,6 +62,8 @@ class DetailViewController: UIViewController {
         let strDate = dateFormatter.string(from: date)
         return strDate
     }
+    
+
 }
 
 extension UIView {
@@ -95,15 +99,32 @@ extension UIView {
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let collectionView = scrollView as? UICollectionView {
+            if collectionView.tag == 7 {
+                let offSet = scrollView.contentOffset.x
+                let width = scrollView.frame.width
+                let horizontalCenter = width / 2
+                dotPageControlDetail.currentPage = Int(offSet + horizontalCenter) / Int(width)
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
         if collectionView == self.rotateDetailCollectionView {
             if let manyImageCount = movieDetailViewModel?.imageUrls?.count {
+                dotPageControlDetail.numberOfPages = manyImageCount
+
                 return manyImageCount
             } else if (movieDetailViewModel?.imageURL != nil ) {
+                dotPageControlDetail.numberOfPages = 1
                 return 1
-            } else { return 0 }
+            } else {
+                dotPageControlDetail.numberOfPages = 0
+                return 0 }
         }
         
         return (movieDetailViewModel?.language.count)!
