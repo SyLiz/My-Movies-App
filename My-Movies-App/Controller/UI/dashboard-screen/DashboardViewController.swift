@@ -46,7 +46,6 @@ class DashboardViewController: UIViewController, FetchHomePageDelegate , CallSeg
     }
     
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "DashboardToDetail") {
             if let nextViewController = segue.destination as? DetailViewController {
@@ -95,6 +94,7 @@ extension DashboardViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.titleLable.text = viewModel[indexPath.row].title
             buildcell.contentView.frame = cell.bounds
             buildcell.contentView.layoutIfNeeded()
+            buildcell.delegate = self
             buildcell.MediumCollectionView.reloadData()
         case ("title","small"):
             let buildcell = cell as! SmallTableViewCell
@@ -103,6 +103,7 @@ extension DashboardViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.titleLable.text = viewModel[indexPath.row].title
             buildcell.contentView.frame = cell.bounds
             buildcell.contentView.layoutIfNeeded()
+            buildcell.delegate = self
             buildcell.smallCollectionView.reloadData()
         case (_, _):
             return UITableViewCell()

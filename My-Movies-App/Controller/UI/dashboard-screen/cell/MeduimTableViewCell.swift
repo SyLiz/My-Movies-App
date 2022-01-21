@@ -12,6 +12,7 @@ class MeduimTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLable: UILabel!
     var viewModel = [DashboardModelElement]()
     @IBOutlet weak var MediumCollectionView: UICollectionView!
+    var delegate:CallSegueFromCell?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,10 @@ class MeduimTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(viewModel[indext].movies[indexPath.row].name)
+        delegate?.performSegueFromCell(senderObj: viewModel[indext].movies[indexPath.row])
+    }
 }
 
 extension MeduimTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource {

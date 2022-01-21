@@ -11,7 +11,7 @@ import UIKit
 class SmallTableViewCell: UITableViewCell {
     var indext = 0
     @IBOutlet weak var titleLable: UILabel!
-    
+    var delegate:CallSegueFromCell?
     var viewModel = [DashboardModelElement]()
     @IBOutlet weak var smallCollectionView: UICollectionView!
     
@@ -27,6 +27,10 @@ class SmallTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(viewModel[indext].movies[indexPath.row].name)
+        delegate?.performSegueFromCell(senderObj: viewModel[indext].movies[indexPath.row])
     }
 }
 
