@@ -15,7 +15,7 @@ protocol FetchHomePageDelegate {
 
 struct NetworkController {
     
-    let prefixURL = "https://jsonkeeper.com/b/9E54"
+    let prefixURL = "https://jsonkeeper.com/b/0GQ8"
     var delegate:FetchHomePageDelegate?
     
     func fetchData() {

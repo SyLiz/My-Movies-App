@@ -19,6 +19,7 @@
 		81B3C083278EDBF4000FCE9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B3C081278EDBF4000FCE9E /* LaunchScreen.storyboard */; };
 		81B3C094278EDF92000FCE9E /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3C093278EDF92000FCE9E /* NetworkController.swift */; };
 		81B3C097278F4DB7000FCE9E /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3C096278F4DB7000FCE9E /* DashboardModel.swift */; };
+		81C7FFDA27B2395700FF0B1A /* RotateDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7FFD927B2395700FF0B1A /* RotateDetailTableViewCell.swift */; };
 		FED7EA36A5FDE5AE06B1C14A /* Pods_My_Movies_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3A0077810E4CC24B1DC266 /* Pods_My_Movies_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		81B3C084278EDBF4000FCE9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B3C093278EDF92000FCE9E /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		81B3C096278F4DB7000FCE9E /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		81C7FFD927B2395700FF0B1A /* RotateDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateDetailTableViewCell.swift; sourceTree = "<group>"; };
 		EF3A0077810E4CC24B1DC266 /* Pods_My_Movies_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Movies_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 		812507272792BFCE00425EB4 /* detail-screen */ = {
 			isa = PBXGroup;
 			children = (
+				81C7FFD827B238F600FF0B1A /* cell */,
 				812507292792C06E00425EB4 /* DetailViewController.swift */,
 			);
 			path = "detail-screen";
@@ -163,6 +166,14 @@
 				8185E4F62792ABE40027F998 /* UI */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		81C7FFD827B238F600FF0B1A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				81C7FFD927B2395700FF0B1A /* RotateDetailTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8125072A2792C06E00425EB4 /* DetailViewController.swift in Sources */,
+				81C7FFDA27B2395700FF0B1A /* RotateDetailTableViewCell.swift in Sources */,
 				8185E4FF2792ABE40027F998 /* MeduimTableViewCell.swift in Sources */,
 				8185E4FC2792ABE40027F998 /* DashboardViewController.swift in Sources */,
 				8185E4FD2792ABE40027F998 /* SmallTableViewCell.swift in Sources */,

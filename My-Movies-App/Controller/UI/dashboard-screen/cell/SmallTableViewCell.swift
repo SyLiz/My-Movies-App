@@ -60,11 +60,11 @@ extension SmallTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-extension SmallTableViewCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize: CGRect = UIScreen.main.bounds
-        //let height = self.secondICollectionView.contentSize.height
-        return CGSize(width: screenSize.width/2.5, height: screenSize.width/2.5)
-    }
-    
-}
+//extension SmallTableViewCell: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        //let height = self.secondICollectionView.contentSize.height
+//        return CGSize(width: screenSize.width/2.1, height: screenSize.width/2.5)
+//    }
+//    
+//}

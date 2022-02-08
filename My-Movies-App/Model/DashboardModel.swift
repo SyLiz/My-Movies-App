@@ -1,15 +1,18 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  HomeModel.swift
-//  My-Movies-App
-//
-//  Created by BOICOMP21070027 on 13/1/2565 BE.
-//
+//   let dashboardModel = try? newJSONDecoder().decode(DashboardModel.self, from: jsonData)
 
 import Foundation
 
-// MARK: - HomeModelElement
+// MARK: - DashboardModelElement
 struct DashboardModelElement: Decodable {
     let type, title, size: String
+    let movies: [Movie]
+}
+
+// MARK: - More
+struct More: Decodable {
     let movies: [Movie]
 }
 
@@ -23,12 +26,14 @@ struct Movie: Decodable {
     let startDate: String
     let studioName: StudioName
     let imageUrls: [String]?
+    let trailer: Trailer?
+    let more: More?
 
     enum CodingKeys: String, CodingKey {
         case id, title, name
         case imageURL = "imageUrl"
         case movieDescription = "description"
-        case category, language, startDate, studioName, imageUrls
+        case category, language, startDate, studioName, imageUrls, trailer, more
     }
 }
 
@@ -49,6 +54,16 @@ enum Language: String, Decodable {
 
 enum StudioName: String, Decodable {
     case marvel = "Marvel"
+}
+
+// MARK: - Trailer
+struct Trailer: Decodable {
+    let videoURL, imageURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case videoURL = "videoUrl"
+        case imageURL = "imageUrl"
+    }
 }
 
 typealias DashboardModel = [DashboardModelElement]

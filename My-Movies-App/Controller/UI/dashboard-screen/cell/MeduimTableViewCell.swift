@@ -24,8 +24,6 @@ class MeduimTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(viewModel[indext].movies[indexPath.row].name)
@@ -47,10 +45,6 @@ extension MeduimTableViewCell : UICollectionViewDelegate, UICollectionViewDataSo
         let imv = cell.viewWithTag(20) as! UIImageView
         imv.loadImageUsingCache(withUrl: self.viewModel[indext].movies[indexPath.row].imageURL)
         
-        //imv.frame = CGRect(x: 0,y: 0, width: imv.frame.width * 1.1 ,height: imv.frame.height*1.04);
-//        imv.layer.borderWidth = 1
-//        imv.layer.borderColor = UIColor.gray.cgColor
-        
         let view = cell.viewWithTag(25)!
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.gray.cgColor
@@ -61,13 +55,5 @@ extension MeduimTableViewCell : UICollectionViewDelegate, UICollectionViewDataSo
         cell.layer.cornerRadius = 9
         cell.layer.borderColor = UIColor.gray.cgColor
         return cell
-    }
-}
-
-extension MeduimTableViewCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize: CGRect = UIScreen.main.bounds
-        //let height = self.secondICollectionView.contentSize.height
-        return CGSize(width: screenSize.width/3, height: screenSize.width/3*2)
     }
 }
