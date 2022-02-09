@@ -44,16 +44,8 @@ extension MeduimTableViewCell : UICollectionViewDelegate, UICollectionViewDataSo
         
         let imv = cell.viewWithTag(20) as! UIImageView
         imv.loadImageUsingCache(withUrl: self.viewModel[indext].movies[indexPath.row].imageURL)
-        
-        let view = cell.viewWithTag(25)!
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.gray.cgColor
-        
         let text = cell.viewWithTag(21) as! UILabel
         text.text = self.viewModel[indext].movies[indexPath.row].name
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 9
-        cell.layer.borderColor = UIColor.gray.cgColor
         return cell
     }
 }

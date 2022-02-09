@@ -82,10 +82,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.contentView.layoutIfNeeded()
             if movieDetailViewModel?.imageUrls != nil {
                 imv.loadImageUsingCache(withUrl: self.movieDetailViewModel!.imageUrls![indexPath.row])
-                imv.contentMode = .scaleAspectFit
             } else {
                 imv.loadImageUsingCache(withUrl: self.movieDetailViewModel!.imageURL)
-                imv.contentMode = .scaleAspectFit
             }
             let label = cell.viewWithTag(11) as! UILabel
             label.text = movieDetailViewModel?.name
