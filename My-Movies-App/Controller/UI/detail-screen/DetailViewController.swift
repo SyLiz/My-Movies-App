@@ -22,7 +22,6 @@ class DetailViewController: UIViewController {
     func convertDate(dateValue: Int) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(dateValue))
         let dateFormatter = DateFormatter()
-        //dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "yyyy / MM / dd" //Specify your format that you want
         let strDate = dateFormatter.string(from: date)

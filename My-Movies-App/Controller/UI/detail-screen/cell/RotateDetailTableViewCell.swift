@@ -31,10 +31,14 @@ class RotateDetailTableViewCell: UITableViewCell {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 2
-        dotPageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
+        if let collectionView = scrollView as? UICollectionView {
+            if collectionView.tag == 7 {
+                let offSet = scrollView.contentOffset.x
+                let width = scrollView.frame.width
+                let horizontalCenter = width / 2
+                dotPageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
+            }
+        }
     }
     
     @IBAction func dotSelected(_ sender: UIPageControl) {
