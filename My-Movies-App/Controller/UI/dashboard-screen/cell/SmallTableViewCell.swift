@@ -19,8 +19,6 @@ class SmallTableViewCell: UITableViewCell {
         super.awakeFromNib()
         smallCollectionView.delegate = self
         smallCollectionView.dataSource = self
-        smallCollectionView.layer.borderWidth = 1
-        smallCollectionView.layer.borderColor = UIColor.gray.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,14 +46,6 @@ extension SmallTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         imv.loadImageUsingCache(withUrl: self.viewModel[indext].movies[indexPath.row].imageURL)
         let text = cell.viewWithTag(31) as! UILabel
         text.text = self.viewModel[indext].movies[indexPath.row].name
-        
-        let view = cell.viewWithTag(25)!
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.gray.cgColor
-        
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 9
-        cell.layer.borderColor = UIColor.gray.cgColor
         return cell
     }
 }

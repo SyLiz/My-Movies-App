@@ -62,7 +62,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             buildcell.rotateDetailCollectionView.reloadData()
             buildcell.languageCollectionView.reloadData()
             if (movieDetailViewModel != nil) {
-                buildcell.dateLabel.text = convertDate(dateValue: Int(movieDetailViewModel!.startDate)!)
+                var date = "No data"
+                if (!movieDetailViewModel!.startDate.isEmpty) {
+                    date = convertDate(dateValue: Int(movieDetailViewModel!.startDate)!)
+                }
+                buildcell.dateLabel.text = date
                 buildcell.detailLabel.text = movieDetailViewModel?.movieDescription
                 var category = ""
                 for item in movieDetailViewModel!.category {

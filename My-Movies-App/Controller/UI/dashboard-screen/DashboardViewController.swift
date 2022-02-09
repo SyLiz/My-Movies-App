@@ -101,8 +101,6 @@ extension DashboardViewController: UITableViewDelegate,UITableViewDataSource {
             buildcell.indext = indexPath.row
             buildcell.viewModel = viewModel
             buildcell.titleLable.text = viewModel[indexPath.row].title
-            buildcell.contentView.frame = cell.bounds
-            buildcell.contentView.layoutIfNeeded()
             buildcell.delegate = self
             buildcell.smallCollectionView.reloadData()
         case (_, _):
