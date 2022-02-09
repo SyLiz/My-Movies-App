@@ -34,6 +34,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var countLayout:Int = 1
         if (movieDetailViewModel?.trailer != nil) { countLayout += 1 }
+        if (movieDetailViewModel?.more != nil) { countLayout += 1 }
         return countLayout
     }
     
@@ -43,8 +44,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         else if (indexPath.row == 1) {
             if (movieDetailViewModel?.trailer != nil) {
                 identifier = "trailerCell"
-            } else {
-                identifier = ""
+            }
+        }
+        else {
+            if (movieDetailViewModel?.more != nil && movieDetailViewModel?.more?.movies.count ?? 0 > 0 ) {
+                identifier = "moreMovieTableCell"
             }
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
@@ -83,74 +87,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let label = cell.viewWithTag(11) as! UILabel
             label.text = movieDetailViewModel?.name
         }
+        else if (identifier == "moreMovieTableCell") {
+            let buildcell = cell as! MoreMovieTableViewCell
+            buildcell.movieDetailViewModel = movieDetailViewModel
+            buildcell.contentView.frame = cell.bounds
+            buildcell.contentView.layoutIfNeeded()
+            buildcell.moreMovieCollectionView.reloadData()
+        }
         return cell
     }
 }
-
-
-
-
-//extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if let collectionView = scrollView as? UICollectionView {
-//            if collectionView.tag == 7 {
-//                let offSet = scrollView.contentOffset.x
-//                let width = scrollView.frame.width
-//                let horizontalCenter = width / 2
-//                dotPageControlDetail.currentPage = Int(offSet + horizontalCenter) / Int(width)
-//            }
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if collectionView == self.rotateDetailCollectionView {
-//            if let manyImageCount = movieDetailViewModel?.imageUrls?.count {
-//                dotPageControlDetail.numberOfPages = manyImageCount
-//
-//                return manyImageCount
-//            } else if (movieDetailViewModel?.imageURL != nil ) {
-//                dotPageControlDetail.numberOfPages = 1
-//                return 1
-//            } else {
-//                dotPageControlDetail.numberOfPages = 0
-//                return 0 }
-//        }
-//        return (movieDetailViewModel?.language.count)!
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rotateDetailCell", for: indexPath)
-//        if collectionView == self.rotateDetailCollectionView {
-//            cell.contentView.layoutIfNeeded()
-//            let imv = cell.viewWithTag(10) as! UIImageView
-//            if movieDetailViewModel?.imageUrls != nil {
-//                imv.loadImageUsingCache(withUrl: self.movieDetailViewModel!.imageUrls![indexPath.row])
-//                imv.contentMode = .scaleAspectFit
-//            } else {
-//                imv.loadImageUsingCache(withUrl: self.movieDetailViewModel!.imageURL)
-//                imv.contentMode = .scaleAspectFit
-//            }
-//
-//        }
-//        if collectionView == self.languageCollectionView {
-//            let label = cell.viewWithTag(20) as! UILabel
-//            label.text = movieDetailViewModel?.language[indexPath.row].rawValue
-//        }
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if collectionView == self.rotateDetailCollectionView {
-//            let screenSize: CGRect = UIScreen.main.bounds
-//            let height = self.rotateDetailCollectionView.contentSize.height
-//            return CGSize(width: screenSize.width, height: height)
-//        }
-//        if collectionView == self.languageCollectionView {
-//            let screenSize: CGRect = UIScreen.main.bounds
-//            let height = self.languageCollectionView.contentSize.height
-//            return CGSize(width: screenSize.width/3, height: height*0.834)
-//        }
-//        return CGSize(width: 0, height: 0)
-//    }
-//}

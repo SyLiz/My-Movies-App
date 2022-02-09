@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		812507252792B73800425EB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812507242792B73800425EB4 /* Main.storyboard */; };
 		8125072A2792C06E00425EB4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812507292792C06E00425EB4 /* DetailViewController.swift */; };
+		817EB71927B36060003A1146 /* MoreMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817EB71827B36060003A1146 /* MoreMovieTableViewCell.swift */; };
 		8185E4FC2792ABE40027F998 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4F72792ABE40027F998 /* DashboardViewController.swift */; };
 		8185E4FD2792ABE40027F998 /* SmallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4F92792ABE40027F998 /* SmallTableViewCell.swift */; };
 		8185E4FE2792ABE40027F998 /* RotateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E4FA2792ABE40027F998 /* RotateTableViewCell.swift */; };
@@ -28,6 +29,7 @@
 		76F047A82A0899AA2F826D39 /* Pods-My-Movies-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My-Movies-App.release.xcconfig"; path = "Target Support Files/Pods-My-Movies-App/Pods-My-Movies-App.release.xcconfig"; sourceTree = "<group>"; };
 		812507242792B73800425EB4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		812507292792C06E00425EB4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		817EB71827B36060003A1146 /* MoreMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMovieTableViewCell.swift; sourceTree = "<group>"; };
 		8185E4F72792ABE40027F998 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8185E4F92792ABE40027F998 /* SmallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTableViewCell.swift; sourceTree = "<group>"; };
 		8185E4FA2792ABE40027F998 /* RotateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateTableViewCell.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				81C7FFD927B2395700FF0B1A /* RotateDetailTableViewCell.swift */,
+				817EB71827B36060003A1146 /* MoreMovieTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			files = (
 				8125072A2792C06E00425EB4 /* DetailViewController.swift in Sources */,
 				81C7FFDA27B2395700FF0B1A /* RotateDetailTableViewCell.swift in Sources */,
+				817EB71927B36060003A1146 /* MoreMovieTableViewCell.swift in Sources */,
 				8185E4FF2792ABE40027F998 /* MeduimTableViewCell.swift in Sources */,
 				8185E4FC2792ABE40027F998 /* DashboardViewController.swift in Sources */,
 				8185E4FD2792ABE40027F998 /* SmallTableViewCell.swift in Sources */,
